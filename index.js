@@ -51,14 +51,15 @@ app.post("/account/login", function (req, res) {
 });
 
 // Get all accounts
-app.get("/account/all", function (req, res) {
-  res.json([
-    {
-      name: "Peter",
-      email: "peter@mit.edu",
-      password: "secret",
-    },
-  ]);
+app.get("/account/all", async function (req, res) {
+  try {
+    const db = await connectToMongoDB();
+    const users = await db.collection("CollectionName").find().toArray();
+    res.json(users);
+  } catch (error) {
+    console.error("Failed to fetch user accounts", error);
+    res.status(500).json({ error: "Failed to fetch user accounts" });
+  }
 });
 
 (async () => {

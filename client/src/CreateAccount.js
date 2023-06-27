@@ -1,15 +1,12 @@
 import React from "react";
 import { Card } from "react-bootstrap";
 import { UserContext } from "./Context.js";
-import { useState } from "react";
 
 function CreateAccount() {
   const [show, setShow] = React.useState(true);
-  const [status, setStatus] = React.useState("");
   const [name, setName] = React.useState("");
   const [email, setEmail] = React.useState("");
   const [password, setPassword] = React.useState("");
-  const ctx = React.useContext(UserContext);
 
   function handleCreate() {
     console.log(name, email, password);
@@ -26,8 +23,26 @@ function CreateAccount() {
       alert("Password Must Be At Least 8 Characters.");
       return;
     }
-    ctx.users.push({ name, email, password, balance: 0 });
-    setShow(false);
+
+    fetch("/account/create", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("User created:", data);
+        setShow(false);
+      })
+      .catch((error) => {
+        console.error("Error creating user:", error);
+      });
   }
 
   function clearForm() {
