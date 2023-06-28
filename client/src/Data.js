@@ -2,8 +2,8 @@ import React, { useContext } from "react";
 import { UserContext } from "./Context.js";
 import { Card, Col, Row } from "react-bootstrap";
 
-function Data() {
-  const { users } = React.useContext(UserContext);
+export default function Data() {
+  const { users } = useContext(UserContext);
 
   const sortedUsers = users.sort((a, b) => a.name.localeCompare(b.name));
   return (
@@ -30,5 +30,3 @@ function Data() {
     </>
   );
 }
-
-export default Data;

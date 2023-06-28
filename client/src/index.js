@@ -10,9 +10,9 @@ import Balance from "./Balance.js";
 import Data from "./Data.js";
 import { UserProvider } from "./Context.js";
 import "bootstrap/dist/css/bootstrap.min.css";
-import ReactDOM from "react-dom";
+import { render } from "react-dom";
 
-function App() {
+export default function App() {
   return (
     <Router>
       <div>
@@ -35,4 +35,9 @@ function App() {
   );
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById("root")
+);

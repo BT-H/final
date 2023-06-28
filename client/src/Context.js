@@ -19,13 +19,6 @@ const UserProvider = ({ children }) => {
       balance: 0,
       selected: true,
     },
-    {
-      name: "Alice Leonard",
-      email: "Alice@gmail.com",
-      password: "secret",
-      balance: 0,
-      selected: true,
-    },
   ]);
 
   function CardComponent(props) {

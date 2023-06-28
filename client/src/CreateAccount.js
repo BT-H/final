@@ -1,12 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card } from "react-bootstrap";
-import { UserContext } from "./Context.js";
 
 function CreateAccount() {
-  const [show, setShow] = React.useState(true);
-  const [name, setName] = React.useState("");
-  const [email, setEmail] = React.useState("");
-  const [password, setPassword] = React.useState("");
+  const [show, setShow] = useState(true);
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   function handleCreate() {
     console.log(name, email, password);
@@ -24,7 +23,7 @@ function CreateAccount() {
       return;
     }
 
-    fetch("/account/create", {
+    fetch("/posts", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
