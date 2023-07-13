@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Card } from "react-bootstrap";
-import { UserContext } from "./Context.js";
+import { UserContext } from "./context.jsx";
 
 function Login() {
   const [show, setShow] = useState(true);

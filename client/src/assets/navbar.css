@@ -1,0 +1,12 @@
+.navbar-link.active {
+  color: Red !important;
+  font-weight: 700;
+}
+
+.navbar-link:hover {
+  opacity: 0.8;
+  color: Red !important;
+}
+img {
+  width: 400px;
+}

@@ -1,6 +1,6 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import { UserContext } from "./Context.js";
+import { UserContext } from "./context.jsx";
 
 function Balance() {
   const [show, setShow] = React.useState(true);
