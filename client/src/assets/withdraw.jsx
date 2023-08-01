@@ -89,7 +89,7 @@
 import { useContext, useEffect, useState } from "react";
 import { validationWithdraw } from "../utils/helper";
 import { UserContext } from "./context";
-import OperationsCard from "./operationscard";
+import { OperationsCard } from "./operationscard";
 
 export function Withdraw() {
   const { selectedUser, submitWithdraw } = useContext(UserContext);

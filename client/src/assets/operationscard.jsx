@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Button, Card, Col, Form, InputGroup, Row } from "react-bootstrap";
 
-const OperationsCard = ({
+export const OperationsCard = ({
   handleSubmit,
   selectedUser,
   type,
@@ -87,5 +87,3 @@ const OperationsCard = ({
     </Row>
   );
 };
-
-export default OperationsCard;

@@ -55,7 +55,7 @@ import { createContext, useCallback, useMemo, useState } from "react";
 export const UserContext = createContext(null);
 
 export const UserContextWrapper = ({ children }) => {
-  const [users, setUsers] = useState([
+  const [users, setUsers] = useState([''
     // {
     //   name: "brian",
     //   email: "b@gmail.com",
