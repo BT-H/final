@@ -36,12 +36,13 @@
 
 // export default Home;
 
+//un comment the below for it to work
 import { useContext } from "react";
 import { Card, Col, Row } from "react-bootstrap";
-import { UserContext } from "./context.jsx";
+import { UserContext } from "../assets/context.jsx";
 
 export function Home() {
-  // const ctx = useContext(UserContext);
+  const ctx = useContext(UserContext);
   return (
     <Row>
       <Col>
@@ -61,6 +62,9 @@ export function Home() {
                 className="rounded mx-auto d-block"
                 alt="bank-cover"
               />
+              <div className="home">
+                <h2>Home</h2>
+              </div>
             </Card.Text>
           </Card.Body>
         </Card>
@@ -68,3 +72,5 @@ export function Home() {
     </Row>
   );
 }
+
+//new code from youtube tutorial, needs to be modified or removed and previous code readded.

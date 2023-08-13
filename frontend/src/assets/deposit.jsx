@@ -2,16 +2,20 @@ import React, { useContext, useEffect, useState } from "react";
 import { Card } from "react-bootstrap";
 import { UserContext } from "./context.jsx";
 
+//exports the primary function
+//sets selectedUser to the UserContext based on the submitDeposit method
 export function Deposit() {
   const { selectedUser, submitDeposit } = useContext(UserContext);
   const [submitted, setSubmitted] = useState(false);
   const [status, setStatus] = useState("");
 
+  //useEffect function send status update when setSubmitted is false
   useEffect(() => {
     setSubmitted(false);
     setStatus("");
   }, []);
 
+  //function to handle errors and the submitssion of the deposit amount, declares invalid amount if NaN sets amount to submitDeposit and updates context?
   const handleSubmit = (e) => {
     e.preventDefault();
     const amt = parseInt(e.target.amount.value);
@@ -24,6 +28,7 @@ export function Deposit() {
     }
   };
 
+  //returns the card and defines the status of setStatus and status.
   return (
     <Card className="center-container" style={{ width: "50vw" }}>
       <div className="text-center">
@@ -44,6 +49,7 @@ export function Deposit() {
   );
 }
 
+//displays the outcome of the entry success/fail and creates a button to submit another
 function DepositMsg({ setShow, setStatus }) {
   return (
     <>
@@ -62,6 +68,7 @@ function DepositMsg({ setShow, setStatus }) {
   );
 }
 
+// form to receive email and deposit amount and takes entries as handleSubmit
 function DepositForm({ handleSubmit, status }) {
   return (
     <form onSubmit={handleSubmit}>
