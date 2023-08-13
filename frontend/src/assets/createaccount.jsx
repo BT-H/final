@@ -168,6 +168,26 @@ export function CreateAccount() {
     if (!validate(password, "password")) return;
     ctx.addUser({ name, email, password, balance: 0, selected: false });
     setShow(false);
+    // Send the new user data to the server
+    fetch("/postData", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        email,
+        password,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("User created:", data);
+        setShow(false);
+      })
+      .catch((error) => {
+        console.error("Error creating user:", error);
+      });
   }
 
   function clearForm() {
